@@ -18,8 +18,11 @@ import (
 )
 
 func main() {
-	r := mux.NewRouter()
-	routes.RegisterBookStoreRoutes(r)
-	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe("localhost:9010", r))
+	router := mux.NewRouter()
+
+	routes.RegisterBookStoreRoutes(router)
+
+	http.Handle("/", router)
+
+	log.Fatal(http.ListenAndServe("localhost:9011", router))
 }
